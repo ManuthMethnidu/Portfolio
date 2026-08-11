@@ -53,7 +53,7 @@ export default function Hero() {
           alt="Manuth Methnidu" 
           className="w-full h-full object-cover object-bottom opacity-80 scale-110 translate-y-8 md:translate-y-16" 
           onError={(e) => {
-            e.currentTarget.src = "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1000&auto=format&fit=crop";
+            e.currentTarget.src = "https://www.elegantthemes.com/blog/wp-content/uploads/2020/08/000-http-error-codes.png";
           }}
         />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#1C1D20] to-transparent"></div>
