@@ -12,6 +12,7 @@ import Projects from './components/Projects';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import CustomCursor from './components/CustomCursor';
+import BackToTop from './components/BackToTop';
 
 const anim = {
   initial: {
@@ -117,6 +118,7 @@ export default function App() {
       <AnimatePresence mode="wait">
         {loading && <Loader key="loader" />}
       </AnimatePresence>
+      <BackToTop />
       
       {!loading && (
         <motion.div 

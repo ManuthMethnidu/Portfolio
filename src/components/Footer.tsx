@@ -13,9 +13,9 @@ export default function Footer() {
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"]);
 
   return (
-    <footer ref={container} id="contact" className="bg-[#1C1D20] text-white pt-24 px-8 md:px-16 pb-8 rounded-t-[40px] mt-[-40px] relative z-20 overflow-hidden">
+    <footer ref={container} id="contact" className="bg-[#1C1D20] text-white pt-16 px-8 md:px-16 pb-8 rounded-t-[40px] mt-[-40px] relative z-20 overflow-hidden">
       <motion.div style={{ y }} className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start mb-24 border-b border-gray-700 pb-24">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12 border-b border-gray-700 pb-12">
           <div className="flex flex-col">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-16 h-16 rounded-full bg-gray-800 overflow-hidden shrink-0">
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-6 mb-24">
+        <div className="flex flex-col md:flex-row gap-6 mb-12">
           <MagneticButton>
             <a href="mailto:methnidumanuth@gmail.com" className="px-8 py-4 rounded-full border border-gray-600 hover:bg-white hover:text-[#1C1D20] transition-colors text-lg inline-block">
               methnidumanuth@gmail.com
@@ -77,6 +77,12 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://instagram.com/enter_alt_break/" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">Instagram</a>
+              </li>
+              <li>
+                <a href="https://guns.lol/EnterAltBreak" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">Guns.lol</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/manuthmethnidu" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">LinkedIn</a>
               </li>
             </ul>
           </div>

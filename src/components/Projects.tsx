@@ -8,22 +8,21 @@ export const projects = [
     type: "Design & Development",
     year: "2026",
     link: "https://n3xa.netlify.app/",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop"
+    image: "/Nexa.png"
   },
   {
     title: "DFD Master",
     type: "Development",
     year: "2026",
     link: "https://dfd.methnidu.dpdns.org",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+    image: "/DFD.png"
   },
   {
     title: "Maths Carnival",
     type: "Design & Development",
     year: "2026",
     link: "https://maths.methnidu.dpdns.org",
-    image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=800&auto=format&fit=crop"
-  }
+    image: "/Maths.png"}
 ];
 
 export default function Projects() {

@@ -40,7 +40,7 @@ export default function CustomCursor() {
     <>
       {/* Project Image Reveal */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[90] hidden md:block overflow-hidden w-[350px] h-[300px]"
+        className="fixed top-0 left-0 pointer-events-none z-[90] hidden md:block overflow-hidden w-[350px] h-[300px] rounded-2xl shadow-2xl"
         animate={{
           x: mousePosition.x - 175,
           y: mousePosition.y - 150,
@@ -54,8 +54,8 @@ export default function CustomCursor() {
           style={{ transform: `translateY(-${(projectIndex || 0) * 100}%)` }}
         >
           {projects.map((project, index) => (
-            <div key={index} className="w-full h-full flex-shrink-0">
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+            <div key={index} className="w-full h-full flex-shrink-0 bg-[#1C1D20] p-6 flex items-center justify-center">
+              <img src={project.image} alt={project.title} className="w-full h-full object-contain" />
             </div>
           ))}
         </div>

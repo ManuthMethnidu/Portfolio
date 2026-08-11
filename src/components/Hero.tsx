@@ -1,38 +1,62 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform, useSpring, useVelocity, useAnimationFrame, useMotionValue } from 'motion/react';
 import { ArrowDownRight } from 'lucide-react';
 import { useRef } from 'react';
 
+const wrap = (min: number, max: number, v: number) => {
+  const rangeSize = max - min;
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
+
 export default function Hero() {
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress, scrollY } = useScroll({
     target: container,
     offset: ['start start', 'end start']
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0vh", "20vh"]);
+  
+  const baseX = useMotionValue(0);
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 4], {
+    clamp: false
+  });
+
+  const directionFactor = useRef<number>(-1);
+  useAnimationFrame((t, delta) => {
+    let moveBy = directionFactor.current * 2 * (delta / 1000);
+    
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = 1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = -1;
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    baseX.set(baseX.get() + moveBy);
+  });
+
+  const marqueeX = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
 
   return (
     <motion.section 
       ref={container}
       className="relative min-h-screen w-full overflow-hidden bg-[#1C1D20] text-white flex flex-col justify-end"
     >
-      <motion.div style={{ y }} className="w-full h-full absolute inset-0 pointer-events-none">
-        {/* Profile Image Background */}
-        <motion.div 
-          className="absolute top-[20%] right-[5%] md:top-[15%] md:right-[15%] z-0"
-          style={{ y: useTransform(scrollYProgress, [0, 1], ["0vh", "15vh"]) }}
-        >
-          <div className="w-[220px] h-[300px] md:w-[350px] md:h-[450px] bg-gray-800/50 relative overflow-hidden pointer-events-auto">
-            <img 
-              src="/profile.jpg" 
-              alt="Manuth Methnidu" 
-              className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" 
-              onError={(e) => {
-                e.currentTarget.src = "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1000&auto=format&fit=crop";
-              }}
-            />
-          </div>
-        </motion.div>
+      <motion.div style={{ y }} className="w-full h-full absolute inset-0 pointer-events-none z-0">
+        <img 
+          src="/pic.png" 
+          alt="Manuth Methnidu" 
+          className="w-full h-full object-cover object-bottom opacity-80 scale-110 translate-y-8 md:translate-y-16" 
+          onError={(e) => {
+            e.currentTarget.src = "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1000&auto=format&fit=crop";
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#1C1D20] to-transparent"></div>
       </motion.div>
 
       {/* Foreground Content container */}
@@ -67,23 +91,23 @@ export default function Hero() {
           <div className="flex flex-col">
             <ArrowDownRight className="w-12 h-12 mb-4" />
             <h2 className="text-2xl md:text-4xl font-medium tracking-tight">
-              Freelance<br/>Designer & Developer
+              Student, Builder<br/>Freelance Designer & Developer
             </h2>
           </div>
         </div>
         
         {/* Marquee */}
-        <div className="w-full overflow-hidden flex">
-          <div className="whitespace-nowrap flex w-max animate-marquee items-center">
+        <div className="w-full overflow-hidden flex whitespace-nowrap">
+          <motion.div style={{ x: marqueeX }} className="flex w-max items-center">
             {[...Array(4)].map((_, i) => (
               <h1 
                 key={i}
-                className="text-[15vw] md:text-[12vw] leading-none font-medium tracking-tighter pr-8 m-0 flex items-center"
+                className="text-[15vw] md:text-[12vw] leading-none font-medium tracking-tighter pr-8 m-0 flex items-center select-none"
               >
                 Manuth Methnidu <span className="text-gray-500 mx-4 md:mx-8">—</span>
               </h1>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.section>
