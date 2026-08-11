@@ -97,7 +97,7 @@ export default function Hero() {
         </div>
         
         {/* Marquee */}
-        <div className="w-full overflow-hidden flex whitespace-nowrap">
+        <div className="w-full overflow-hidden flex whitespace-nowrap mb-24 md:mb-0">
           <motion.div style={{ x: marqueeX }} className="flex w-max items-center">
             {[...Array(4)].map((_, i) => (
               <h1 
