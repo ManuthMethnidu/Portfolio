@@ -51,6 +51,7 @@ const Loader = () => {
         exit={{ opacity: 0 }}
         className="text-4xl md:text-5xl font-medium flex items-center relative z-10 h-16"
       >
+        <span className="w-3 h-3 rounded-full bg-white mr-4"></span>
         <AnimatePresence mode="wait">
           <motion.span
             key={index}

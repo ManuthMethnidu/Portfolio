@@ -23,7 +23,7 @@ export default function Header() {
         transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
         className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 text-white"
       >
-        <div className="text-lg font-medium tracking-tight">
+        <div className="hidden md:block text-lg font-medium tracking-tight">
           © Code by AI
         </div>
         <nav className="hidden md:flex gap-8 text-sm font-medium">
@@ -55,10 +55,7 @@ export default function Header() {
             transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
             className="fixed inset-0 z-[60] bg-[#1C1D20] text-white flex flex-col p-8 md:hidden"
           >
-            <div className="flex justify-between items-center mb-16">
-              <div className="text-lg font-medium tracking-tight">
-                © Code by AI
-              </div>
+            <div className="flex justify-end items-center mb-16">
               <button onClick={() => setIsOpen(false)}>
                 <X className="w-8 h-8" />
               </button>
