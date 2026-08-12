@@ -1,12 +1,12 @@
 import MagneticButton from './MagneticButton';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  const handleScroll = (e: MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     setIsOpen(false);
     const target = document.querySelector(targetId);
