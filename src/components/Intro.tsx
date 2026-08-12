@@ -8,9 +8,9 @@ export default function Intro() {
   return (
     <section id="about" className="py-24 md:py-48 px-8 md:px-16">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32">
-        <div className="flex-1 text-2xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight flex flex-wrap">
+        <div className="flex-1 text-2xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
            {words.map((word, i) => (
-             <span key={i} className="mr-2 md:mr-3 overflow-hidden flex pb-2">
+             <span key={i} className="mr-2 md:mr-3 overflow-hidden inline-flex align-bottom pb-1 md:pb-2">
                <motion.span
                  initial={{ y: "100%" }}
                  whileInView={{ y: 0 }}

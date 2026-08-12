@@ -39,7 +39,7 @@ export default function Header() {
         </nav>
         <div className="md:hidden">
           <MagneticButton>
-            <button onClick={() => setIsOpen(true)}>
+            <button onClick={() => setIsOpen(true)} aria-label="Open menu">
               <Menu className="w-8 h-8" />
             </button>
           </MagneticButton>
@@ -56,7 +56,7 @@ export default function Header() {
             className="fixed inset-0 z-[60] bg-[#1C1D20] text-white flex flex-col p-8 md:hidden"
           >
             <div className="flex justify-end items-center mb-16">
-              <button onClick={() => setIsOpen(false)}>
+              <button onClick={() => setIsOpen(false)} aria-label="Close menu">
                 <X className="w-8 h-8" />
               </button>
             </div>

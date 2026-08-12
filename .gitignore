@@ -6,3 +6,17 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Testing
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+__tests__/
+__mocks__/
+
+# Screenshots & Temp
+*.png.tmp
+temp/
+tmp/
+

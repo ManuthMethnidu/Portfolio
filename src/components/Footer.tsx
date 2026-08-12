@@ -61,13 +61,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-end pt-8">
           <div className="flex flex-col gap-4 mb-12 md:mb-0">
             <div>
-              <p className="text-gray-500 uppercase tracking-widest text-xs mb-2">Version</p>
+              <p className="text-gray-400 uppercase tracking-widest text-xs mb-2">Version</p>
               <p>2026 © Edition</p>
             </div>
           </div>
           
           <div>
-            <p className="text-gray-500 uppercase tracking-widest text-xs mb-2 text-left md:text-right">Socials</p>
+            <p className="text-gray-400 uppercase tracking-widest text-xs mb-2 text-left md:text-right">Socials</p>
             <ul className="flex flex-wrap gap-6">
               <li>
                 <a href="https://github.com/ManuthMethnidu" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">GitHub</a>

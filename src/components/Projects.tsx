@@ -31,7 +31,7 @@ export default function Projects() {
   return (
     <section id="work" className="py-24 px-8 md:px-16">
       <div className="max-w-7xl mx-auto relative">
-        <h5 className="text-gray-500 uppercase tracking-widest text-sm mb-12 font-medium">Recent work</h5>
+        <h2 className="text-gray-500 uppercase tracking-widest text-sm mb-12 font-medium">Recent work</h2>
         
         <div className="flex flex-col">
           {projects.map((project, index) => (
@@ -49,9 +49,9 @@ export default function Projects() {
               onMouseLeave={() => setCursorState({ active: false, type: 'default', projectIndex: null })}
             >
               
-              <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-4 md:mb-0 group-hover:pl-4 transition-all duration-500 group-hover:text-gray-400">
+              <h3 className="text-4xl md:text-6xl font-medium tracking-tight mb-4 md:mb-0 group-hover:pl-4 transition-all duration-500 group-hover:text-gray-400">
                 {project.title}
-              </h2>
+              </h3>
               
               <div className="flex items-center gap-8 text-lg text-gray-600 group-hover:text-gray-400 transition-colors duration-500">
                 <p>{project.type}</p>
